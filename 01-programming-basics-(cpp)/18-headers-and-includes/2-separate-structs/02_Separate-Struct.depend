@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1631475057 source:c:\users\hossa\downloads\hossam\computer science\mastering c++ (udemy)\00 my code\21_headers-and-includes\02_separate-struct\department.cpp
+	"Department.h"
+
+1631475045 c:\users\hossa\downloads\hossam\computer science\mastering c++ (udemy)\00 my code\21_headers-and-includes\02_separate-struct\department.h
+	"Employee.h"
+
+1631475070 c:\users\hossa\downloads\hossam\computer science\mastering c++ (udemy)\00 my code\21_headers-and-includes\02_separate-struct\employee.h
+	<iostream>
+	<vector>
+
+1631475090 source:c:\users\hossa\downloads\hossam\computer science\mastering c++ (udemy)\00 my code\21_headers-and-includes\02_separate-struct\employee.cpp
+	"Employee.h"
+	"Department.h"
+
+1631475186 source:c:\users\hossa\downloads\hossam\computer science\mastering c++ (udemy)\00 my code\21_headers-and-includes\02_separate-struct\main.cpp
+	<iostream>
+	"Employee.h"
+	"Department.h"
+

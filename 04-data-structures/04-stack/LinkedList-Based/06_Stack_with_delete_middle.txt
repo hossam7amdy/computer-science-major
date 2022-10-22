@@ -1,0 +1,4 @@
+Consider a doubly linked list of the stack
+We can easily have extra pointer that points to the middle
+With push or pop, we shift it a single step
+Using next/previous, we can delete it in O(1)

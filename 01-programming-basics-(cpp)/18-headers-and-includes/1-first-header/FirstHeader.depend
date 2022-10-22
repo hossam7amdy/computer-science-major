@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1631435042 source:c:\users\hossa\downloads\hossam\computer science\firstheader\main.cpp
+	<iostream>
+	"sum.h"
+	"another.h"
+
+1631435021 c:\users\hossa\downloads\hossam\computer science\firstheader\sum.h
+
+1631435010 source:c:\users\hossa\downloads\hossam\computer science\firstheader\sum.cpp
+	"sum.h"
+	<iostream>
+
+1631435116 source:c:\users\hossa\downloads\hossam\computer science\firstheader\another.cpp
+	"sum.h"
+	<iostream>
+
+1631435080 c:\users\hossa\downloads\hossam\computer science\firstheader\another.h
+

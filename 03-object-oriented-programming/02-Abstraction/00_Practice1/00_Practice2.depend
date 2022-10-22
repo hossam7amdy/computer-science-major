@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1631767844 source:c:\users\hossa\downloads\hossam\computer science\mastering c++ (udemy)\00 my code\02_oop\05_object-oriented-programming\00_practice2\main.cpp
+	<iostream>
+
+1631769474 source:c:\users\hossa\downloads\hossam\computer science\mastering c++ (udemy)\00 my code\02_oop\05_object-oriented-programming\00_practice2\src\rectangle.cpp
+	"Rectangle.h"
+
+1631769450 c:\users\hossa\downloads\hossam\computer science\mastering c++ (udemy)\00 my code\02_oop\05_object-oriented-programming\00_practice2\include\rectangle.h
+
