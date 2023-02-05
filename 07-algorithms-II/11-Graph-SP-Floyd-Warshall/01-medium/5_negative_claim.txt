@@ -1,0 +1,25 @@
+It fails
+Because if a path has length 4 edges then it gets 4c added whereas a 
+path of length 2 edges gets 2c added. Might change which path is shortest
+
+Consider this graph
+
+0 1 2
+1 2 2
+0 3 3
+3 4 -3
+4 2 3
+
+Shortest path has from 0-2
+	2+2 = 4 vs 3-3+3 = 3 (winner)
+
+Add +3 to each edge
+	5+5 = 10 (winner) vs 6+0+6 = 12, which is wrong!
+
+- Some of our claims can be worng
+- You can proof your claims by:
+	- Find a counter-example & proof it is correct
+
+NOTES:
+ - In Graph Thoery: You must provide a valid proof not just some Intuitions
+ - Other Topics Like (DB, BS, ...) doesn't necessary need such a proof.

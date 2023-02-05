@@ -1,0 +1,27 @@
+1) The longest path from A to E is A–B–C–D–E
+	According to the optimal substructure property:
+		The longest path B to E is not B–C–D–E	which is 3
+		However, there is a longer path: B–C–A–D–E
+	
+	But don't we just add it into A-E? It will create a cycle
+	
+
+2) DAG doesn't have a cycle. So the above won't happen
+	We can prove it using the lecture shortest path
+	
+	
+	
+*) If the optimal substructure property is applicable, we can use DP
+	If it is not, we can't. The longest path is classified as NP-problem
+		For simplicity, we need to try every thing to find the solution
+
+
+
+3) Consider any simple graph that has positive cycles
+	e.g. 0-1, 1-2, 2-1, 2-3
+	
+	Shortest path works well and can discard this positive cycle
+	When you negate the graph, the cycle now is negative and 
+	shortest path using floyd will fail
+	
+	https://www.quora.com/In-a-graph-why-cant-we-multiply-edge-lengths-by-1-and-apply-the-shortest-path-algorithm-to-find-the-longest-path
