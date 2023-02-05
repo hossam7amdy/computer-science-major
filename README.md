@@ -2,7 +2,7 @@
 
 ## _Sometimes watch what you have done, gives you the push to continue._
 
-Here I keep track of computer scince learning journey, beside a CS degree I follow **_Dr.Mostafa Saad Ibrahim_** [Roadmap](https://docs.google.com/presentation/d/1zxuyjjh4rEzcsnewmnayQP5aJEqA4pRQYbMrBWOrl5o/edit?usp=sharing).
+Here I keep track of my computer scince learning journey.
 
 ### Courses List
 
