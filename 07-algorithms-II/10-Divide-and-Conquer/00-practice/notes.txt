@@ -1,0 +1,15 @@
+- Complexity:
+	- intuitively & visualization
+	depth = logn
+	merge = n
+	= O(nlogn)
+
+	- substitute-method
+	https://www.youtube.com/watchv=g1AwUYauqgg&ab_channel=SatputeAcademy
+
+- prove 2^log n = n
+https://www.quora.com/How-do-I-prove-2-log-n-n
+
+- D&C Applications
+	-  Strassen’s Matrix Multiplication: https://www.youtube.com/watch?v=0oJyNmEbS4w
+	- Closest Pair of Points: https://www.youtube.com/watch?v=0W_m46Q4qMc
