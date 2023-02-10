@@ -14,6 +14,18 @@
   prereq (course_id*,	prereq_id*)
 */
 
+DROP TABLE IF EXISTS time_slot;
+DROP TABLE IF EXISTS takes;
+DROP TABLE IF EXISTS prereq;
+DROP TABLE IF EXISTS classroom;
+DROP TABLE IF EXISTS advisor;
+DROP TABLE IF EXISTS student;
+DROP TABLE IF EXISTS teaches;
+DROP TABLE IF EXISTS section;
+DROP TABLE IF EXISTS instructor;
+DROP TABLE IF EXISTS course;
+DROP TABLE IF EXISTS department;
+
 /* DDL */
 CREATE TABLE IF NOT EXISTS department (
   dept_name VARCHAR (20),
@@ -73,6 +85,17 @@ CREATE	TABLE IF NOT EXISTS teaches(
     REFERENCES instructor (ID)
 );
 
+CREATE TABLE IF NOT EXISTS student (
+  ID        VARCHAR (5)  NOT NULL,
+  name      VARCHAR (20) NOT NULL,
+  dept_name VARCHAR (20) DEFAULT NULL,
+  tot_cred  DECIMAL(3,0) DEFAULT NULL,
+  
+  PRIMARY KEY (ID),
+  FOREIGN KEY (dept_name)
+    REFERENCES department (dept_name) ON DELETE SET NULL
+);
+
 CREATE TABLE IF NOT EXISTS advisor (
   s_ID VARCHAR (5) NOT NULL,
   i_ID VARCHAR (5) DEFAULT NULL,
@@ -103,17 +126,6 @@ CREATE TABLE IF NOT EXISTS prereq (
     course (course_id)
 );
 
-CREATE TABLE IF NOT EXISTS student (
-  ID        VARCHAR (5)  NOT NULL,
-  name      VARCHAR (20) NOT NULL,
-  dept_name VARCHAR (20) DEFAULT NULL,
-  tot_cred  DECIMAL(3,0) DEFAULT NULL,
-  
-  PRIMARY KEY (ID),
-  FOREIGN KEY (dept_name)
-    REFERENCES department (dept_name) ON DELETE SET NULL
-);
-
 CREATE TABLE IF NOT EXISTS takes (
   ID        VARCHAR (5)  NOT NULL,
   course_id VARCHAR (8)  NOT NULL,
@@ -139,24 +151,15 @@ CREATE TABLE IF NOT EXISTS time_slot (
 );
 
 /* DATA */
-INSERT INTO advisor VALUES 
-  ('12345','10101'),
-  ('44553','22222'),
-  ('45678','22222'),
-  ('00128','45565'),
-  ('76543','45565'),
-  ('23121','76543'),
-  ('98988','76766'),
-  ('76653','98345'),
-  ('98765','98345');
-
-INSERT INTO classroom VALUES 
-  ('Packard','101',500),
-  ('Painter','514',10),
-  ('Taylor','3128',70),
-  ('Watson','100',30),
-  ('Watson','120',50);
-
+INSERT INTO department VALUES 
+  ('Biology','Watson',90000.00),
+  ('Comp. Sci.','Taylor',100000.00),
+  ('Elec. Eng.','Taylor',85000.00),
+  ('Finance','Painter',120000.00),
+  ('History','Painter',50000.00),
+  ('Music','Packard',80000.00),
+  ('Physics','Watson',70000.00);
+  
 INSERT INTO course VALUES 
   ('BIO-101','Intro. to Biology','Biology',4),
   ('BIO-301','Genetics','Biology',4),
@@ -172,15 +175,6 @@ INSERT INTO course VALUES
   ('MU-199','Music Video Production','Music',3),
   ('PHY-101','Physical Principles','Physics',4);
 
-INSERT INTO department VALUES 
-  ('Biology','Watson',90000.00),
-  ('Comp. Sci.','Taylor',100000.00),
-  ('Elec. Eng.','Taylor',85000.00),
-  ('Finance','Painter',120000.00),
-  ('History','Painter',50000.00),
-  ('Music','Packard',80000.00),
-  ('Physics','Watson',70000.00);
-
 INSERT INTO instructor VALUES 
   ('10101','Srinivasan','Comp. Sci.',65000.00),
   ('12121','Wu','Finance',90000.00),
@@ -194,15 +188,6 @@ INSERT INTO instructor VALUES
   ('76766','Crick','Biology',72000.00),
   ('83821','Brandt','Comp. Sci.',92000.00),
   ('98345','Kim','Elec. Eng.',80000.00);
-
-INSERT INTO prereq VALUES
-  ('BIO-301','BIO-101'),
-  ('BIO-399','BIO-101'),
-  ('CS-190','CS-101'),
-  ('CS-315','CS-101'),
-  ('CS-319','CS-101'),
-  ('CS-347','CS-101'),
-  ('EE-181','PHY-101');
 
 INSERT INTO section VALUES 
   ('BIO-101','1','Summer',2009,'Painter','514','B'),
@@ -220,6 +205,23 @@ INSERT INTO section VALUES
   ('HIS-351','1','Spring',2010,'Painter','514','C'),
   ('MU-199','1','Spring',2010,'Packard','101','D'),
   ('PHY-101','1','Fall',2009,'Watson','100','A');
+  
+INSERT INTO teaches VALUES 
+  ('76766','BIO-101','1','Summer',2009),
+  ('76766','BIO-301','1','Summer',2010),
+  ('10101','CS-101','1','Fall',2009),
+  ('45565','CS-101','1','Spring',2010),
+  ('83821','CS-190','1','Spring',2009),
+  ('83821','CS-190','2','Spring',2009),
+  ('10101','CS-315','1','Spring',2010),
+  ('45565','CS-319','1','Spring',2010),
+  ('83821','CS-319','2','Spring',2010),
+  ('10101','CS-347','1','Fall',2009),
+  ('98345','EE-181','1','Spring',2009),
+  ('12121','FIN-201','1','Spring',2010),
+  ('32343','HIS-351','1','Spring',2010),
+  ('15151','MU-199','1','Spring',2010),
+  ('22222','PHY-101','1','Fall',2009);
 
 INSERT INTO student VALUES 
   ('00128','Zhang','Comp. Sci.',102),
@@ -235,6 +237,33 @@ INSERT INTO student VALUES
   ('76653','Aoi','Elec. Eng.',60),
   ('98765','Bourikas','Elec. Eng.',98),
   ('98988','Tanaka','Biology',120);
+
+INSERT INTO advisor VALUES 
+  ('12345','10101'),
+  ('44553','22222'),
+  ('45678','22222'),
+  ('00128','45565'),
+  ('76543','45565'),
+  ('23121','76543'),
+  ('98988','76766'),
+  ('76653','98345'),
+  ('98765','98345');
+
+INSERT INTO classroom VALUES 
+  ('Packard','101',500),
+  ('Painter','514',10),
+  ('Taylor','3128',70),
+  ('Watson','100',30),
+  ('Hossam','120',50);
+  
+  INSERT INTO prereq VALUES
+  ('BIO-301','BIO-101'),
+  ('BIO-399','BIO-101'),
+  ('CS-190','CS-101'),
+  ('CS-315','CS-101'),
+  ('CS-319','CS-101'),
+  ('CS-347','CS-101'),
+  ('EE-181','PHY-101');
 
 INSERT INTO takes VALUES 
   ('00128','CS-101','1','Fall',2009,'A'),
@@ -259,23 +288,6 @@ INSERT INTO takes VALUES
   ('98765','CS-315','1','Spring',2010,'B'),
   ('98988','BIO-101','1','Summer',2009,'A'),
   ('98988','BIO-301','1','Summer',2010,NULL);
-
-INSERT INTO teaches VALUES 
-  ('76766','BIO-101','1','Summer',2009),
-  ('76766','BIO-301','1','Summer',2010),
-  ('10101','CS-101','1','Fall',2009),
-  ('45565','CS-101','1','Spring',2010),
-  ('83821','CS-190','1','Spring',2009),
-  ('83821','CS-190','2','Spring',2009),
-  ('10101','CS-315','1','Spring',2010),
-  ('45565','CS-319','1','Spring',2010),
-  ('83821','CS-319','2','Spring',2010),
-  ('10101','CS-347','1','Fall',2009),
-  ('98345','EE-181','1','Spring',2009),
-  ('12121','FIN-201','1','Spring',2010),
-  ('32343','HIS-351','1','Spring',2010),
-  ('15151','MU-199','1','Spring',2010),
-  ('22222','PHY-101','1','Fall',2009);
 
 INSERT INTO time_slot VALUES 
   ('A','F','08:00:00','08:50:00'),
