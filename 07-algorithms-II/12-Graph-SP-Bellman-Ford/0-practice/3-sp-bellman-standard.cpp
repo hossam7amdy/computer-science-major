@@ -2,20 +2,22 @@
 using namespace std;
 
 #define INF 1e9
-#define from first
-#define cost second
-#define edge pair<int,int>
+struct edge {
+    int from, to, cost;
+    edge(int from, int to, int cost):
+        from(from), to(to), cost(cost){
+    }
+};
 
-vector<int> bellman(vector<vector<edge>> &adjList, int src){
+vector<int> bellman(vector<vector<edge>>& adjList, int src){
     int n = adjList.size();
-
     vector<int> dist(n, INF);
-    dist[src] = 0;
 
-    for(int it = 0; it < n - 1; ++it)
+    dist[src] = 0;
+    for(int i = 0; i < n - 1; ++i)
         for(int to = 0; to < n; ++to)
-            for(auto &ed : adjList[to])
-                dist[to] = min(dist[to], dist[ed.from] + ed.cost);
+            for(auto& ne : adjList[to])
+                dist[ne.to] = min(dist[ne.to], dist[ne.from] + ne.cost);
 
     return dist;
 }
@@ -29,7 +31,7 @@ int main(){
     for(int i = 0; i < e; ++i){
         int from, to, cost;
         cin >> from >> to >> cost;
-        adjList[to].push_back({from, cost});
+        adjList[to].push_back({from, to, cost});
     }
 
     vector<int> res = bellman(adjList, 0);

@@ -104,15 +104,15 @@ WHERE shortname LIKE 'dq%'
 -- • scheme_id (integer, primary key)
 -- • scheme_desc (variable-length character field, max of 100 characters, not null)
 CREATE TABLE gradescheme (
-	scheme_id   INT PRIMARY KEY,
-	scheme_desc VARCHAR(100) NOT NULL,
+ scheme_id   INT PRIMARY KEY,
+ scheme_desc VARCHAR(100) NOT NULL,
 );
 
 -- Insert the following rows into the new table:
 INSERT INTO gradescheme VALUES
-	(0, 'Lab assignment with min-grading.')
-	(1, 'Daily quiz.')
-	(2, 'Midterm or final exam.')
+ (0, 'Lab assignment with min-grading.')
+ (1, 'Daily quiz.')
+ (2, 'Midterm or final exam.')
 
 -- In the assignment table, rename the gradescheme column to be named “scheme_id”.
 ALTER TABLE assignment CHANGE COLUMN gradescheme scheme_id NOT NULL;
@@ -128,12 +128,53 @@ CREATE FUNCTION is_weekend(
 d DATE
 ) RETURNS BOOLEAN
 BEGIN
-	IF WEEKDAY(d) = 5 OR WEEKDAY(d) = 6
-		THEN RETURN TRUE;
-	ELSE
-		RETURN FALSE;
-	END IF;
+ IF WEEKDAY(d) = 5 OR WEEKDAY(d) = 6
+  THEN RETURN TRUE;
+ ELSE
+  RETURN FALSE;
+ END IF;
 END !
 DELIMITER ;
 
 -- [Problem 4b]
+DELIMITER !
+CREATE FUNCTION `is_holiday`(
+d DATE
+) RETURNS varchar(100) DETERMINISTIC
+BEGIN
+ DECLARE day INT DEFAULT DAY(d);
+ DECLARE month INT DEFAULT MONTH(d);
+ DECLARE day_of_week INT DEFAULT DAYOFWEEK(d);
+ DECLARE day_of_month INT DEFAULT DAYOFMONTH(d);
+  
+ IF month = 1 AND day = 1
+  THEN RETURN `January 1: "New Year\'s Day"`;
+ ELSEIF month = 7 AND day = 4
+  THEN RETURN 'July 4: "Independence Day"';
+ ELSEIF month = 5 AND day_of_month > 20 AND day_of_week = 2
+  THEN RETURN 'The last Monday in May: "Memorial Day"';
+ ELSEIF  month = 9 AND day_of_month < 7 AND day_of_week = 2
+  THEN RETURN 'The first Monday in September: "Labor Day"';
+ ELSEIF month = 11 AND day_of_month BETWEEN 22 AND 28 AND day_of_week = 5
+  THEN RETURN 'The fourth Thursday in November: "Thanksgiving"';
+ ELSE RETURN NULL;
+ END IF ;
+END !
+DELIMITER ;
+
+
+-- [Problem 5a]
+-- Write a query that reports how many filesets were submitted on the various holidays recognized by your is_holiday() function.
+SELECT is_holiday(sub_date) holiday, COUNT(*) submissions
+FROM fileset
+GROUP BY holiday
+
+-- [Problem 5b]
+-- Write another query that reports how many filesets were submitted on a weekend, and how many were not submitted on a weekend.
+SELECT COUNT(*) submissions,
+ CASE
+  WHEN is_weekend(sub_date) = 1 THEN 'weekend'
+  ELSE 'weekday'
+ END is_weekend
+FROM fileset
+GROUP BY is_weekend
