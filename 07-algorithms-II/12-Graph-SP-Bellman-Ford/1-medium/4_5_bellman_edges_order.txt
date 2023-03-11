@@ -1,0 +1,40 @@
+A) For the sorted edges, they create a path 0-1-2-3-4-5
+	After the first iteration, all relaxation will happen and we have sp[5]
+	Then all other iterations do nothing
+	
+B) For the opposite 
+	We will do ALL the iterations
+	In each iteration, we will relax a single edge
+	
+	So first iteration relax 0-1
+	Second iteration relax 1-2
+	and so on
+	
+
+Observe, how the algorithm total work is senstive to edges order!
+
+=======================
+
+dist[] at kth iteration (1-based) means: the shortest path from the source to the N-1 nodes using at most k edges
+
+According to that after 1st iteration, dist[] = SP using at most 1 edge in a path (relaxed)
+
+But from tracing the first case, we see dist[5] = 5 NOT OO
+This happens as the order of edges lead to 5 consective edges relaxations!
+
+This means our definition is not accurate anymore
+The reason behind this case is the in-place updates
+If our table is dist[step][node], we won't have such thing
+
+However:
+1- We did this in-place as minimization is good anyway, nothing makes the results invalid
+2- It seems if we are lucky, we finish faster, which is a good advantage
+3- The definition itself doesn't matter, the goal is shortest path itself!
+
+
+
+
+
+
+
+

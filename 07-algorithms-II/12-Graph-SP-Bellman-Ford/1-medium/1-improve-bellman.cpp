@@ -32,12 +32,19 @@ private:
         dist[src] = 0;
 
         for(int it = 0; it < n - 1; ++it){
+            bool updated = false;
+
             for(int to = 0; to < (int) edgeList.size(); ++to){
                 edge &ne = edgeList[to];
-                dist[ne.to] = min(dist[ne.to], dist[ne.from] + ne.cost);
-            }
-        }
 
+                if( dist[ne.to] > dist[ne.from] + ne.cost ){
+                    dist[ne.to] = dist[ne.from] + ne.cost;
+                    updated = true;
+                }
+            }
+            if(!updated)
+                break;
+        }
         return dist;
     }
 };
