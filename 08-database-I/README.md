@@ -1,4 +1,4 @@
-# Caltech-CS121
+# [Caltech-CS121](http://users.cms.caltech.edu/~donnie/cs121/)
 
 **Course structure**: 8 sets, midterm, and final.
 
