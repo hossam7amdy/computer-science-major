@@ -11,25 +11,25 @@
 - Relationship-Set Primary Key: a set of attributes whose values uniquely identify each relationship in the relationship set.
 - One-to-One Relationship: either side can be the primary key.
 - One-to-Many Relationship: the primary key of the "one" side becomes a foreign key in the "many" side.
-- Many-to-Many Relationship: the primary key of the "many" side becomes a foreign key in the "many" side.
+- Many-to-Many Relationship: new relation combines both primary keys.
 
-![Example](./assets/image.png)
+<img src='image.png' alt='Example' width='600'/>
 
 ### 3. Participation Constraints
 
 - **Total Participation:** every entity in the entity set participates in at least one relationship in the relationship set.
 - **Partial Participation:** some entities may not participate in any relationship in the relationship set.
 
-![Diagramming Participation](./assets/image-1.png)
+<img src='image-1.png' alt='Diagramming Participation' width='600'/>
 
 Numerical Constraint Example
 
-![Numerical Constraint Example](./assets/image-2.png)
+<img src='image-2.png' alt='Numerical Constraint example' width='600'/>
 
 - **Diagraming Roles:** use a directed line to indicate the role of an entity in a relationship set.
 
 Many workers to one manager example (_rare use case_):
-![role](./assets/image-3.png)
+<img src='image-3.png' alt='role' width='600'/>
 
 ### 4. Weak Entity Sets
 
@@ -40,7 +40,8 @@ Many workers to one manager example (_rare use case_):
 - The _discriminator_ (partial key) of a weak entity set is underlined with a dashed line.
 
 Diagramming Weak Entity-Sets
-![Diagramming Weak Entity-Sets](./assets/image-4.png)
+
+<img src='image-4.png' alt='Diagramming Weak Entity-Sets' width='600'/>
 
 ### 5. Common Design Pitfalls
 
@@ -48,8 +49,10 @@ Diagramming Weak Entity-Sets
 
 - Don’t include entity-set primary key attributes on
   other entity-sets!
-  ![Common Attribute Mistakes 1](./assets/image-5.png)
+
+  <img src='image-5.png' alt='Common Attribute Mistakes 1' width='600'/>
 
 - Don’t include primary key attributes as descriptive
   attributes on relationship-set, either!
-  ![Common Attribute Mistakes 2](./assets/image-6.png)
+
+  <img src='image-6.png' alt='Common Attribute Mistakes 2' width='600'/>

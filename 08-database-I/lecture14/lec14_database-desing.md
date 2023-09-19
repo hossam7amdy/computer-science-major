@@ -42,8 +42,14 @@
 
 ### Entity-Relationship Diagrams
 
-- Diagramming a Relationship-Set ![Diagramming a Relationship-Set](./assets/ER-M.png)
-- Attribute Structure: simple vs composite, single-valued vs multi-valued, base/source vs derived ![Attribute Structure](./assets/attribute-structure.png)
+- Diagramming a Relationship-Set
+
+  <img src='image.png' alt='Diagramming a Relationship-Set' width='400'/>
+
+- Attribute Structure: simple vs composite, single-valued vs multi-valued, base/source vs derived
+
+  <img src='image-1.png' alt='Attribute Structure' width='200' height='300'/>
+
 - Representing Constraints: Can always leave out constraints at implementation time
 
 ### Links
