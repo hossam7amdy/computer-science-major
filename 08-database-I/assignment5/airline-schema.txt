@@ -1,0 +1,47 @@
+Indicate primary key columns by enclosing the attribute names in _ characters.
+Include descriptions of other candidate keys or foreign keys (if any) immediately under each relation schema.
+
+Example:
+foo(_a_, b, c)
+ * b is also a candidate key
+ * c is a foreign key to bar.c
+-----------------------------------------------------------------------------
+
+-- [Problem 4]
+
+aircraft(_aircraft_type_, manufacturer, model)
+* (manufacturer, model) is also a candidate key
+
+flight(_flight_no_, _date_, time, src, dst, aircraft_type, international)
+* FK(aircraft_type) to aircraft.aircraft_type
+
+seat(_seat_no_, aircraft_type, seat_class, seat_type, exit_flag)
+* FK(aircraft_type) to aircraft.aircraft_type
+
+customer(_id_, first_name, last_name, email)
+* UNIQUE(email)
+
+customer_phone(_phone_number_, cust_id)
+* FK(cust_id) to customer.id
+
+purchaser(_id_, card_no, exp_date, ver_code)
+* FK(id) to customer.id
+* UNIQUE(card_no)
+
+traveler(_id_, freq_flyer_no, passport_no, citizenship, emergency_name, emergency_phone)
+* FK(id) to customer.id
+* UNIQUE(passport_no)
+
+purchase(_id_, purchaser_id, created_at, confirm_no)
+* FK(purchaser_id) to purchaser.id
+* UNIQUE(confirm_no)
+
+ticket(_id_, traveler_id, purchase_id, price)
+* FK(traveler_id) to traveler.id
+* FK(purchase_id) to purchase.id
+
+ticket_leg(_ticket_id_, seat_no, flight_no, flight_date, aircraft_type)
+* FK(ticket_id) to ticket.id
+* FK(seat_no) to seat.seat_no
+* FK(flight_no, flight_date) to flight.flight_no, flight.date
+* FK(aircraft_type) to flight.aircraft_type
