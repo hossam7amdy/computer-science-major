@@ -22,14 +22,47 @@ A protocol define **format**, **order** of messages sent and received among netw
 
 ## Network Core
 
-**packet/circuit switches:** forward packets (chunks of data)
-**Internet structure:** network of networks
+- mesh of interconnected router
+- **packet-switching**:
+  - **store-and-forward**: entire packet must arrive at router before it can be transmitted on next link
+  - **queuing delays** and **loss** when packet arrives to full queue
+- two key network-core functions: **routing** and **forwarding**
+- **circuit-switching**: end-end resources allocated to, reserved for "call" between source & dest
+  - **dedicated resources**: no sharing
+  - **circuit-like** (guaranteed) performance
+  - **call setup** required
 
 ## Network Performance
 
+- **Delay**: how long it takes for a bit to travel from sender to receiver
+- **Loss**: packets that arrive to full queue are dropped
+- **Throughput**: rate (bits/time unit) at which bits transferred between sender/receiver
+
 ## Protocol Layers and Service Models
 
+1. **Application:** supporting network applications
+   - HTTP, IMAP, SMTP, DNS
+2. **Transport:** process-process data transfer
+   - TCP, UDP
+3. **Network:** routing of datagrams from source to destination
+   - IP, routing protocols
+4. **Link:** data transfer between neighboring network elements
+   - Ethernet, 802.11 (WiFi), PPP
+5. **Physical:** bits “on the wire”
+
 ## Network Security
+
+- Denial of Service (DoS)
+- Packet Sniffing
+- IP spoofing
+
+### Lines of Defense
+
+- **Authentication:** Who you are?
+- **Confidentiality:** via encryption
+- **Integrity Check:** digital signature
+- **Access Restrictions:** password-protection
+- **Firewalls**
 
 ## History of Computer Networking and the Internet
 
