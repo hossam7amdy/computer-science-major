@@ -2,21 +2,36 @@
 
 ## What is the Internet?
 
-1. The Internet is a _network of networks_ composed of:
+### A Nuts-and-Bolts View
 
-- **End systems** (hosts): run application programs
-- **Communication links**: fiber, copper, radio, satellite
-- **Packet switches**: forward packets (chunks of data)
+Millions of connected computing devices **hosts** running network apps (e.g., web, email), communicating over **communication links** (e.g., fiber, copper, radio, satellite) **transmitting** data **packets** (chunks of data) **switching** (forwarding) packets through **routers** (aka **switches**)
 
-2. Internet as an infrastructure that provides services to applications:
+### A Services View
 
-- Interconnected **ISPs**
-- **Protocols** rule of communication (TCP, IP, HTTP, etc.)
-- **Internet standards**:
-  - RFC: Request for comments
-  - IETF: Internet Engineering Task Force
+Infrastructure that provides services to applications: Web, VoIP, email, games, e-commerce, social nets, search, etc.
 
-## Internet History
+### What is a Protocol?
+
+A protocol define **format**, **order** of messages sent and received among network entities, and **actions** taken on message transmission receipt.
+
+## Network Edge
+
+**End systems (hosts):** run application programs (e.g., Web, email); at **edge** of network
+**Access Networks:** wired, wireless communication links connecting end systems to network edge (DSL, cable, FTTH, LTE, 5G, etc.)
+**Physical media:** copper, fiber, radio, satellite (transmission rate: **bandwidth**)
+
+## Network Core
+
+**packet/circuit switches:** forward packets (chunks of data)
+**Internet structure:** network of networks
+
+## Network Performance
+
+## Protocol Layers and Service Models
+
+## Network Security
+
+## History of Computer Networking and the Internet
 
 - 1961: Kleinrock - queueing theory shows effectiveness of packet-switching
 - 1964: Baran - packet-switching in military nets
@@ -43,5 +58,3 @@
   - 1994: Mosaic, later Netscape
 - Mid 1990's: commercialization of the Web
 - late 1990's - 2000's: more killer apps: instant messaging, P2P file sharing
-
-## Network Core and Edges
