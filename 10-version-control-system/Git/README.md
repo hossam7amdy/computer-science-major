@@ -18,6 +18,18 @@ Git follow 3-Tree Architecture -> (Working Directory + Staging Area + Git Direct
 3. Commits -> (commit message + meta-data + parent commit)
 4. Tagged Annotation -> (tag name + meta-data + commit)
 
+## GitHub Authentication
+
+1. SSH Key
+2. Personal Access Token (username + password)
+
+## Forking GitHub Repository
+
+1. Fork the repository
+2. Clone the repository
+3. Add upstream remote
+4. Sync your fork
+
 ## To customize the prompt with Git branching information
 
 **Download the below shell script and place it in your home directory**  
