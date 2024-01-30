@@ -4,11 +4,14 @@
 
 ### A Nuts-and-Bolts View
 
-Millions of connected computing devices **hosts** running network apps (e.g., web, email), communicating over **communication links** (e.g., fiber, copper, radio, satellite) **transmitting** data **packets** (chunks of data) **switching** (forwarding) packets through **routers** (aka **switches**)
+- A collection of billions of computing devices, and packet switches interconnected by links.
+- A collection of hardware and software components executing protocols that define the format and the order of messages exchanged between two or more communicating entities, as well as the actions taken on the transmission and/or receipt of a message or other event.
+- A "network of networks".
 
 ### A Services View
 
-Infrastructure that provides services to applications: Web, VoIP, email, games, e-commerce, social nets, search, etc.
+- A place I go for information, entertainment, and to communicate with people.
+- A platform for building network applications.
 
 ### What is a Protocol?
 
@@ -20,13 +23,22 @@ A protocol define **format**, **order** of messages sent and received among netw
 **Access Networks:** wired, wireless communication links connecting end systems to network edge (DSL, cable, FTTH, LTE, 5G, etc.)
 **Physical media:** copper, fiber, radio, satellite (transmission rate: **bandwidth**)
 
+### Examples of Access Networks
+
+- Ethernet: Up to 100's Gbps per link.
+- 802.11 WiFi: 10’s to 100’s of Mbps per device.
+- Cable access network: Up to 10’s to 100’s of Mbps downstream per user.
+- Digital subscriber line (DSL): Up to 10’s of Mbps downstream per user.
+- Cellular 4G: Up to 10’s Mbps per device.
+
 ## Network Core
 
 - mesh of interconnected router
+- two key network-core functions: **routing** and **forwarding**
+
 - **packet-switching**:
   - **store-and-forward**: entire packet must arrive at router before it can be transmitted on next link
   - **queuing delays** and **loss** when packet arrives to full queue
-- two key network-core functions: **routing** and **forwarding**
 - **circuit-switching**: end-end resources allocated to, reserved for "call" between source & dest
   - **dedicated resources**: no sharing
   - **circuit-like** (guaranteed) performance
